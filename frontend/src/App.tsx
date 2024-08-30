@@ -16,6 +16,7 @@ import UserSavedItems from './components/screens/userPage/UserSavedItems';
 import UserAddressBook from './components/screens/userPage/UserAddressBook';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header2 from './components/layouts/Header2';
+import PrivateRoute from "./components/PrivateRoute";
 
 type MyPaymentMetadata = {};
 
@@ -26,6 +27,8 @@ type AuthResult = {
     username: string
   }
 };
+
+
 
 export type User = AuthResult['user'];
 
@@ -137,10 +140,13 @@ const App: React.FC = () => {
       // handle the error accordingly
     }
   }
+
+
   return (
     <>
       <Router>
-        <Header2 user={user} onSignIn={signIn} onSignOut={signOut} />
+        {/* <Header2 user={user} onSignIn={signIn} onSignOut={signOut} /> */}
+        {/* <Header2 /> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUp />} />
@@ -149,7 +155,15 @@ const App: React.FC = () => {
           <Route path="/recovery" element={<Recovery />} />
           <Route path="/otp" element={<OTP />} />
           <Route path="/store/:id" element={<ProductPage />} />
+          {/* <Route path="/cart/:id?" element={<CartPage onClickBuy={orderProduct} />} /> */}
+          {/* <PrivateRoute path="/cart/:id?" element={(props) => <CartPage {...props} onClickBuy={orderProduct} />} /> */}
+          {/* <PrivateRoute
+          path="/cart/:id?"
+          element={<CartPage onClickBuy={orderProduct} />}
+        /> */}
+          <Route element={<PrivateRoute />}>
           <Route path="/cart/:id?" element={<CartPage onClickBuy={orderProduct} />} />
+          </Route>
           <Route path="/product/:id" element={<ProductPageOverview />} />
           <Route path="/user/account" element={<UserAccount />} />
           <Route path="/user/order" element={<UserOrder />} />

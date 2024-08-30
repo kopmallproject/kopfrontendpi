@@ -24,8 +24,8 @@ const IMAGES = [slideImg, slideImg, slideImg, slideImg, slideImg]
 const HomePage = () => {
   return (
     <>
-        {/* <Header />
-        <FontAwesomeIcon icon={faCoffee} /> */}
+        <Header2 />
+        {/* <FontAwesomeIcon icon={faCoffee} /> */}
         
         <div className='mt-20 lg:px-28 px-[5%] h-[140px] lg:h-[345px] flex space-between'> 
           {/* <div className="category_div hidden lg:flex flex-col justify-between w-[25%] bg-[#25133A] p-5 text-[#FFFFFF]">

@@ -84,6 +84,7 @@ const ProductPageOverview: React.FC<ProductPageOverviewProps> = ({ params }) => 
 
   return (
     <>
+    <Header2 />
 
       <div className="mt-20">
         {loading ? (

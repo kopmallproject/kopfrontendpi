@@ -16,7 +16,7 @@ const SignUp = () => {
     const [email, setEmail] = useState("")
     const [phoneNumber, setPhoneNumber] = useState("")
     const [password, setPassword] = useState("")
-    const [message, setMessage] = useState("")
+    // const [message, setMessage] = useState("")
     const [show, changeShow] = useState("fa fa-eye-slash")
     const navigate = useNavigate()
 
@@ -26,6 +26,7 @@ const SignUp = () => {
 
     const userSignup = useSelector((state) => state.userSignup);
     const {error, loading, userInfo} = userSignup
+    
 
     useEffect(() => {
         if(userInfo) {
@@ -45,17 +46,20 @@ const SignUp = () => {
         //     setMessage("Invalid Email Address!")
         // }
         // else 
-        if (!validPassword.test(password)) {
-            console.log(typeof(phoneNumber))
-            setMessage("Password Criteria dord not match!")
-        }
-        else {
-            // setMessage('Signup Success')
-            dispatch(signup(fname, lname, email, phoneNumber, password))
-            setMessage("signup is Success")
-            navigate("/signup")
+        // if (!validPassword.test(password)) {
+        //     console.log(typeof(phoneNumber))
+        //     // setMessage("Password Criteria dord not match!")
+        // }
+        // else {
+        //     // setMessage('Signup Success')
+        //     dispatch(signup(fname, lname, email, phoneNumber, password))
+            
+        //     // navigate("/login")
+        //     console.log('error', error)
     
-        }
+            
+        // }
+        dispatch(signup(fname, lname, email, phoneNumber, password))
     }
 
     const showPassword = () => {
@@ -92,7 +96,7 @@ const SignUp = () => {
                         </button>
                     </div>
                     <div className="divider text-[14px] text-[#FFFFFF80] font-weight-400 my-10">OR</div>
-                    {message && <Message variant='danger'>{message}</Message>}
+                    {error && <Message variant='danger'>{error.detail}</Message>}
                     <form action="" onSubmit={submitHandler} className='flex flex-col gap-3'>
                         <input type="text" placeholder="First name" value={fname} onChange={(e) => setFname(e.target.value)} className="input input-bordered border-[1px] border-solid border-[#FFFFFF80] bg-transparent text-[#FFFFFF80] text-[16px] font-weight-400" />
                         <input type="text" placeholder="Last name" value={lname} onChange={(e) => setLname(e.target.value)} className="input input-bordered border-[1px] border-solid border-[#FFFFFF80] bg-transparent text-[#FFFFFF80] text-[16px] font-weight-400" />

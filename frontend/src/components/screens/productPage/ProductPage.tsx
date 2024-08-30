@@ -37,7 +37,7 @@ const ProductPage: React.FC = () => {
 
   return (
     <>
-      
+      <Header2 />
 
       <div className="h-[100%] mt-20 lg:px-28 px-[5%] flex gap-7">
         <Category />

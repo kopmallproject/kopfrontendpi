@@ -49,6 +49,7 @@ const Login = () => {
     }
   return (
     <>
+        
         <div className="flex flex-row ">
             <div className="w-[100%] left_wrapper lg:w-[50%] bg-[#25133A] px-7 lg:px-[7%] lg:py-[50px] pt-[20px] pb-[50px] flex flex-col lg:justify-center ">
                 <div className="">
@@ -87,7 +88,7 @@ const Login = () => {
                             <a href="" className="text-[#FCB349]">Forgot password?</a>
                         </div>
                         <button className="btn btn-block bg-transparent border-[1px] border-[#FCB349] text-[#FCB349] text-[20px] font-weight-700 hover:text-[#FCB349] hover:border-[#25133A] hover:bg-[#ffff]">Log in</button>
-                        <span className='text-[20px] text-white font-weight-700 text-center'>Don’t have an account?  <a className='text-[#FCB349] hover:text-white'>Sign up</a></span>
+                        <span className='text-[20px] text-white font-weight-700 text-center'>Don’t have an account?  <Link to="/signup" className='text-[#FCB349] hover:text-white'>Sign up</Link></span>
                     </form>
                 </div>
             </div>

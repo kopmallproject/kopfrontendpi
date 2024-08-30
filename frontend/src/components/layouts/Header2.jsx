@@ -14,18 +14,18 @@ import { Link } from 'react-router-dom'
 
 
 const Header2 = (props) => {
-    // const userLogin = useSelector(state => state.userLogin)
-    // const {userInfo} = userLogin;
+    const userLogin = useSelector(state => state.userLogin)
+    const {userInfo} = userLogin;
     const dispatch = useDispatch()
 
     const cart = useSelector(state => state.cart)
     const { cartItems } = cart
 
-    // console.log('user name', userInfo)
+    console.log('user name', userInfo)
 
-    // const logoutHandler=()=>{
-    //     dispatch(logout())
-    // }
+    const logoutHandler=()=>{
+        dispatch(logout())
+    }
   return (
     <>
         <header className='w-full lg:h-28 h-14 lg:border-b-[1px] border-b-gray relative'>
@@ -95,7 +95,7 @@ const Header2 = (props) => {
                                 <span className='hidden lg:inline-block'>account</span>
                                 <FontAwesomeIcon icon={faArrowDown}  className="hidden lg:inline-block"/>
                             </a>
-                            {/* {userInfo ? (
+                            {userInfo ? (
                                 <div className="sub_menu subMenu">
                                     <span>Welcome {userInfo.name}</span>
                                     <div className="card">
@@ -120,9 +120,9 @@ const Header2 = (props) => {
                                     </div>
                                     
                                 </div>
-                            )} */}
+                            )}
 
-                            {props.user ? (
+                            {/* {props.user ? (
                                 <div className="sub_menu subMenu">
                                     @{props.user.username} <button type="button" onClick={props.onSignOut}>Sign out</button>
                                 </div>
@@ -131,7 +131,7 @@ const Header2 = (props) => {
                                 <div className="sub_menu subMenu">
                                     <button onClick={props.onSignIn}>Sign in</button>
                                 </div>
-                            )}
+                            )} */}
                             
                         </li>
                     </ul>

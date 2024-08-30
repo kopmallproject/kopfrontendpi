@@ -10,6 +10,7 @@ import { addToCart, removeFromCart } from '../../../actions/CartActions';
 import Loader from '../../Loader';
 import Message from '../../Message';
 import { AppDispatch } from '../../../store';
+import {isTokenExpired, refreshToken} from '../../../actions/userAction';
 
 interface CartItem {
   product: string;
@@ -53,6 +54,7 @@ const CartPage: React.FC<CartPageProps> = ({onClickBuy}) => {
   console.log(productId, qty);
 
   const cart = useSelector((state: CartState) => state.cart);
+  const accessToken = useSelector((state: any) => state.userLogin.accessToken);
   const { cartItems } = cart;
 
   console.log('cartItems screen', cartItems);
@@ -72,13 +74,17 @@ const CartPage: React.FC<CartPageProps> = ({onClickBuy}) => {
   }
 
   useEffect(() => {
+    // if (accessToken && isTokenExpired(accessToken)) {
+    //   dispatch(refreshToken());
+    // }
+
     if (productId) {
       dispatch(addToCart(productId, qty));
     }
 
     setParameters();
     
-  }, [dispatch, productId, qty, cartItems]);
+  }, [accessToken, dispatch, productId, qty, cartItems]);
 
   const removeFromCartHandler = (id: string) => {
     dispatch(removeFromCart(id));
@@ -93,6 +99,7 @@ const CartPage: React.FC<CartPageProps> = ({onClickBuy}) => {
 
   return (
     <>
+    <Header2 />
 
       <div className="div">
         <h4 className="text-[14px] px-[4%] lg:px-28 mt-20">
